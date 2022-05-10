@@ -1,11 +1,13 @@
-const abbreviator = (number) => {
+const abbreviator = (amount) => {
+  amount = parseFloat(amount);
+  if (isNaN(amount)) return amount;
   const THOUSAND = 1000;
   const MILLION = 1000000;
   const BILLION = 1000000000;
   const TRILLION = 1000000000000;
   const ZILLION = 1000000000000000;
-  const isNegative = number < 0;
-  const NUM = Math.abs(number);
+  const isNegative = amount < 0;
+  const NUM = Math.abs(amount);
   const isThousand = () => {
     if (NUM >= THOUSAND) {
       return evaluator(NUM, THOUSAND, "k");
