@@ -61,3 +61,5 @@ const evaluator = (number, base, sign) => {
 	}
 	return output(abbrev);
 };
+
+export default abbrivator;
