@@ -30,6 +30,10 @@ output: -10m
 
 2- import it `import abbreviate from "YOUR_FILE_NAME"`.
 
-3- use it! `abbreviate(100000000000000000000000000000000000)`
+3- use it! `abbreviate(5000)`
 
-4- Surprise! Surprise! `output: '⭐⭐INFINITY⭐⭐'`
+# Easter egg
+
+`abbreviate(100000000000000000000000000000000000)`
+
+`output: '⭐⭐INFINITY⭐⭐'`
