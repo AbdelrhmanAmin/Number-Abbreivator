@@ -1,4 +1,4 @@
-const abbrivator = number => {
+const abbreviator = number => {
 	const THOUSAND = 1000;
 	const MILLION = 1000000;
 	const BILLION = 1000000000;
@@ -62,4 +62,4 @@ const evaluator = (number, base, sign) => {
 	return output(abbrev);
 };
 
-export default abbrivator;
+export default abbreviator;
