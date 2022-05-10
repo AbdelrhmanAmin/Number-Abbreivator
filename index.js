@@ -48,10 +48,9 @@ const abbreviator = (number) => {
 
 const evaluator = (number, base, sign) => {
   const NUM = Math.floor(number).toString();
-  const base100 = +`${base}00`;
-  const base10 = +`${base}0`;
+  const base100 = Number(`${base}00`);
+  const base10 = Number(`${base}0`);
   let abbrev;
-  const output = (num) => `${num}${sign}`;
   if (number >= base100) {
     abbrev = NUM.slice(0, 3);
   } else if (number >= base10) {
@@ -59,7 +58,7 @@ const evaluator = (number, base, sign) => {
   } else {
     abbrev = NUM.slice(0, 1);
   }
-  return output(abbrev);
+  return `${abbrev}${sign}`;
 };
 
 export default abbreviator;
