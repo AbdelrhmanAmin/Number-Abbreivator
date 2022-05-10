@@ -1,13 +1,13 @@
+const THOUSAND = 1000;
+const MILLION = 1000000;
+const BILLION = 1000000000;
+const TRILLION = 1000000000000;
+const ZILLION = 1000000000000000;
+
 const abbreviator = (amount) => {
-  amount = parseFloat(amount);
-  if (isNaN(amount)) return amount;
-  const THOUSAND = 1000;
-  const MILLION = 1000000;
-  const BILLION = 1000000000;
-  const TRILLION = 1000000000000;
-  const ZILLION = 1000000000000000;
-  const isNegative = amount < 0;
-  const NUM = Math.abs(amount);
+  const validatedAmount = validateInput(amount);
+  const isNegative = validatedAmount < 0;
+  const NUM = Math.abs(validatedAmount);
   const isThousand = () => {
     if (NUM >= THOUSAND) {
       return evaluator(NUM, THOUSAND, "k");
@@ -61,6 +61,17 @@ const evaluator = (number, base, sign) => {
     abbrev = NUM.slice(0, 1);
   }
   return `${abbrev}${sign}`;
+};
+
+const validateInput = (input) => {
+  let output = input;
+  if (typeof input === "string") {
+    output = parseFloat(input);
+    if (isNaN(output)) {
+      throw new Error("Please provide a valid number");
+    }
+  }
+  return Number(output);
 };
 
 export default abbreviator;
