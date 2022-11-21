@@ -5,9 +5,9 @@ const TRILLION = 1000000000000;
 const ZILLION = 1000000000000000;
 
 const abbreviator = (amount) => {
-  const validatedAmount = validateInput(amount);
+  const validatedAmount = validateInput(amount); // validate input is a valid number and parse it.
   const isNegative = validatedAmount < 0;
-  const NUM = Math.abs(validatedAmount);
+  const NUM = Math.abs(validatedAmount); // remove the negative from the number
   const isThousand = () => {
     if (NUM >= THOUSAND) {
       return evaluator(NUM, THOUSAND, "k");
@@ -50,17 +50,17 @@ const abbreviator = (amount) => {
 
 const evaluator = (number, base, sign) => {
   const NUM = Math.floor(number).toString();
-  const base100 = Number(`${base}00`);
-  const base10 = Number(`${base}0`);
+  const base100 = Number(`${base}00`); // 1000(00)
+  const base10 = Number(`${base}0`); // 1000(0)
   let abbrev;
-  if (number >= base100) {
-    abbrev = NUM.slice(0, 3);
-  } else if (number >= base10) {
-    abbrev = NUM.slice(0, 2);
+  if (number >= base100) { // 200000 >= 100000
+    abbrev = NUM.slice(0, 3); // num: 200000  abbrev: 200
+  } else if (number >= base10) { // 20000 >= 10000
+    abbrev = NUM.slice(0, 2); // num: 20000 abbrev: 20
   } else {
-    abbrev = NUM.slice(0, 1);
+    abbrev = NUM.slice(0, 1); // num: 2000 abbrev: 2
   }
-  return `${abbrev}${sign}`;
+  return `${abbrev}${sign}`; // 2k
 };
 
 const validateInput = (input) => {
@@ -74,4 +74,6 @@ const validateInput = (input) => {
   return Number(output);
 };
 
-export default abbreviator;
+
+const x = abbreviator("10000")
+console.log(x)
